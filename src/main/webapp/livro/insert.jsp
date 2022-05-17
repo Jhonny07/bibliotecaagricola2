@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -16,31 +17,28 @@
                     <label for="titulo">Título:</label>
                     <input type="text" name="titulo" class="form-control" />
                 </div>
-
                 <div class="form-group">
                     <label for="genero">Gênero:</label>
-                    <select type="text" name="genero" class="form-select" />
-                    <c: forEach var="g" items="${generos}">
-                         <option value="${g.id}">${g.nome}</option>
-                    </c:forEach>
-                </select>
+                    <select name="genero" class="form-select">
+                        <c:forEach var="g" items="${generos}">
+                            <option value="${g.id}">${g.nome}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-
                 <div class="form-group">
                     <label for="autor">Autor:</label>
-                    <select name="autor" name="autor" class="form-select">
-                    <c: forEach var="a" items="${autores}">
-                         <option value="${g.id}">${g.nome}</option>
-                    </c:forEach>
-                </select>
+                    <select name="autor" class="form-select">
+                        <c:forEach var="a" items="${autores}">
+                            <option value="${a.id}">${a.nome}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-
                 <hr />
-                <a href="/livro/list" class="btn btn-primary">Voltar</a>
+                <a href="/titulo/list" class="btn btn-primary">Voltar</a>
                 <input type="submit" value="Salvar" class="btn btn-success" />
             </form>
         </main>
-
+ 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
     </body>
